@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700;800&family=Cormorant+Garamond:ital@1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  
+  --color-slate-950: #050505;
+  --color-slate-900: #0a0a0a;
+  --color-slate-800: #1a1a1a;
+  --color-slate-700: #2a2a2a;
+  --color-emerald-500: #10b981;
+  --color-emerald-400: #34d399;
+}
+
+body {
+  @apply bg-[#050505] text-slate-200 antialiased font-sans selection:bg-slate-800 selection:text-white;
+}
+
+/* Custom scrollbar for minimalism */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+}
+
+/* Hardware / Scanline Overlay */
+.scanlines-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.2) 51%);
+  background-size: 100% 4px;
+  z-index: 9999;
+  opacity: 0.15;
+}
